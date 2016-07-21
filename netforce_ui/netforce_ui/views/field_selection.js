@@ -53,6 +53,7 @@ var FieldSelection=NFView.extend({
                 this.update_selection();
             }
         }
+        this.data.notranslation=field.notranslation || this.options.notranslation;
         //log("selection",this.selection);
         this.data.string=field.string;
         this.data.readonly=field.readonly||this.options.readonly||this.context.readonly;

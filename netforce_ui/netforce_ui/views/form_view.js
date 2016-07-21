@@ -777,7 +777,7 @@ var FormView=NFView.extend({
                     string: $el.attr("string"),
                     method: $el.attr("method"),
                     action: $el.attr("action"),
-                    action_options: $el.attr("action_options"),
+                    action_options: $el.attr("action_options") || "",
                     action_context: $el.attr("action_context"),
                     size: $el.attr("size")||"small",
                     type: $el.attr("type"),
@@ -790,7 +790,11 @@ var FormView=NFView.extend({
                     context: context
                 };
                 if (that.active_id) {
-                    opts.action_options="refer_model="+that.options.model+"&refer_id="+that.active_id; // XXX: orig_id
+                    if(opts.action_options){
+                        opts.action_options+="&refer_model="+that.options.model+"&refer_id="+that.active_id; // XXX: orig_id
+                    }else{
+                        opts.action_options="refer_model="+that.options.model+"&refer_id="+that.active_id; // XXX: orig_id
+                    }
                 }
                 if (opts.dropdown) { // XXX
                     var inner="";

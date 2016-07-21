@@ -46,6 +46,7 @@ class User(Model):
         "pin_code": fields.Char("PIN Code", password=True, size=256),
         "company_id": fields.Many2One("company","Company",search=True),
         "company2_id": fields.Many2One("company","Company #2",search=True),
+        "lang_id": fields.Many2One("language","Language",search=True),
     }
     _order = "login"
     _defaults = {

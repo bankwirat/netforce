@@ -131,6 +131,7 @@ var TabsView=NFView.extend({ // XXX: rename to tabs
                     readonly: readonly,
                     required: $el.attr("required"),
                     nolabel: $el.attr("nolabel"),
+                    notranslation: $el.attr("notranslation"),
                     invisible: $el.attr("invisible"),
                     onchange: $el.attr("onchange"),
                     count: $el.attr("count")||1,

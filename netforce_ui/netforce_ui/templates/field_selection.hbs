@@ -20,13 +20,25 @@
                 {{#each sel_groups}}
                     <optgroup label="{{label}}">
                         {{#each sel_options}}
-                            <option value="{{value}}"{{#if selected}} selected="selected"{{/if}}>{{t string}}</option>
+                            <option value="{{value}}"{{#if selected}} selected="selected"{{/if}}>
+                            {{#if ../notranslation}}
+                                {{string}}
+                            {{else}}
+                                {{t string}}
+                            {{/if}}
+                            </option>
                         {{/each}}
                     </optgroup>
                 {{/each}}
             {{else}}
                 {{#each sel_options}}
-                    <option value="{{value}}"{{#if selected}} selected="selected"{{/if}}>{{t string}}</option>
+                    <option value="{{value}}"{{#if selected}} selected="selected"{{/if}}>
+                        {{#if ../notranslation}}
+                            {{string}}
+                        {{else}}
+                            {{t string}}
+                        {{/if}}
+                    </option>
                 {{/each}}
             {{/if}}
         </select>

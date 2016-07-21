@@ -157,12 +157,16 @@ class Login(Model):
                     raise Exception("No company found")
                 company_id = res[0]
             comp = get_model("company").browse(company_id)
+            locale='en_US'
+            if user.lang_id:
+                locale=user.lang_id.code
             return {
                 "cookies": {
                     "dbname": database.get_active_db(),
                     "user_id": user_id,
                     "token": token,
                     "user_name": user.name,
+                    "locale": locale,
                     "package": settings.package,
                     "company_id": company_id,
                     "company_name": comp.name,

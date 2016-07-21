@@ -116,9 +116,10 @@ class StaticHandler(tornado.web.StaticFileHandler):
     def get(self, path, **kwargs):
         try:
             mime_type, encoding = mimetypes.guess_type(path)
-            self.set_header("Content-Type", mime_type)
-            data = get_static_data(path,self.request)
-            self.write(data)
+            if mime_type:
+                self.set_header("Content-Type", mime_type)
+                data = get_static_data(path,self.request)
+                self.write(data)
         except Exception as e:
             print("ERROR: failed to get static file (%s)" % path)
             import traceback
