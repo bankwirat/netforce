@@ -586,7 +586,7 @@ function field_value(name,context,link,target,m2o_link,click_action,show_image,s
             for (var i in field.selection) {
                 var v=field.selection[i];
                 if (v[0]==val) {
-                    val=v[1];
+                    val=translate(v[1]);
                     break;
                 }
             }
