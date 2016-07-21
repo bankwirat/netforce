@@ -49,9 +49,22 @@ class User(Model):
         "lang_id": fields.Many2One("language","Language",search=True),
     }
     _order = "login"
+
+    def _get_lang(self, context={}):
+        res=get_model("language").search_read([],['code'])
+        lang_id=None
+        if res:
+            lang_id=res[0]
+            for r in res:
+                if r['code']=='th_TH':
+                    lang_id=r['id']
+                    break
+        return lang_id
+
     _defaults = {
         "activ_code": lambda *a: "%.x" % random.randint(0, 1 << 32),
         "active": True,
+        'lang_id': _get_lang,
     }
 
     def name_search(self, name, condition=[], limit=None, context={}):
