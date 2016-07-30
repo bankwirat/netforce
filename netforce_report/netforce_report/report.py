@@ -736,6 +736,9 @@ def convert_to_pdf(data, data_fmt):
     print(res)
     f_in.close()
     out_data = open(path_out, "rb").read()
+    #remove tmp file
+    for f in [path_in, path_out]:
+        os.remove(f)
     return out_data
 
 

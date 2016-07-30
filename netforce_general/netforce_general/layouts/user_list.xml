@@ -2,7 +2,8 @@
     <field name="name"/>
     <field name="login"/>
     <field name="profile_id"/>
-    <field name="role_id"/>
+    <field name="limit_inspect"/>
+    <field name="current_inspect"/>
     <field name="email"/>
     <field name="mobile"/>
     <field name="contact_id"/>
